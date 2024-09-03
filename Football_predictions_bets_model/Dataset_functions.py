@@ -8,7 +8,7 @@ import pandas as pd
 import numpy as np
 
 def clean_seasonal_data(dataset):
-    dataset.drop(['HTHG','HTAG','HTR','Referee','BWH', 'BWD', 'BWA', 'IWH', 'IWD', 'IWA', 'PSH', 'PSD', 'PSA', 'WHH', 'WHD', 'WHA', 'VCH', 'VCD', 'VCA', 'MaxH', 'MaxD', 'MaxA','AvgH','AvgD',	'AvgA',	'B365>2.5',	'B365<2.5',	'P>2.5',	'P<2.5',	'Max>2.5',	'Max<2.5',	'Avg>2.5',	'Avg<2.5',	'AHh',	'B365AHH',	'B365AHA',	'PAHH',	'PAHA',	'MaxAHH',	'MaxAHA',	'AvgAHH',	'AvgAHA',	'B365CH',	'B365CD',	'B365CA',	'BWCH',	'BWCD',	'BWCA',	'IWCH',	'IWCD',	'IWCA',	'PSCH',	'PSCD',	'PSCA',	'WHCH',	'WHCD',	'WHCA',	'VCCH',	'VCCD',	'VCCA',	'MaxCH',	'MaxCD',	'MaxCA',	'AvgCH',	'AvgCD',	'AvgCA',	'B365C>2.5',	'B365C<2.5',	'PC>2.5',	'PC<2.5',	'MaxC>2.5',	'MaxC<2.5',	'AvgC>2.5',	'AvgC<2.5',	'AHCh',	'B365CAHH',	'B365CAHA',	'PCAHH',	'PCAHA',	'MaxCAHH',	'MaxCAHA',	'AvgCAHH',	'AvgCAHA','BFH',	'BFD',	'BFA',	'1XBH',	'1XBD',	'1XBA',	'BFEH',	'BFED',	'BFEA',	'BFE>2.5',	'BFE<2.5',	'BFEAHH',	'BFEAHA',	'BFCH',	'BFCD',	'BFCA'	'1XBCH',	'1XBCD',	'1XBCA',	'BFECH',	'BFECD',	'BFECA',	'BFEC>2.5',	'BFEC<2.5',	'BFECAHH',	'BFECAHA'	 ], inplace =True, axis = 1, errors='ignore')
+    dataset.drop(['HTHG','HTAG','HTR','Referee', 'WHH', 'WHD', 'WHA', 'VCH', 'VCD', 'VCA', 'MaxH', 'MaxD', 'MaxA','AvgH','AvgD',	'AvgA',	'B365>2.5',	'B365<2.5',	'P>2.5',	'P<2.5',	'Max>2.5',	'Max<2.5',	'Avg>2.5',	'Avg<2.5',	'AHh',	'B365AHH',	'B365AHA',	'PAHH',	'PAHA',	'MaxAHH',	'MaxAHA',	'AvgAHH',	'AvgAHA',	'B365CH',	'B365CD',	'B365CA',	'BWCH',	'BWCD',	'BWCA',	'IWCH',	'IWCD',	'IWCA',	'PSCH',	'PSCD',	'PSCA',	'WHCH',	'WHCD',	'WHCA',	'VCCH',	'VCCD',	'VCCA',	'MaxCH',	'MaxCD',	'MaxCA',	'AvgCH',	'AvgCD',	'AvgCA',	'B365C>2.5',	'B365C<2.5',	'PC>2.5',	'PC<2.5',	'MaxC>2.5',	'MaxC<2.5',	'AvgC>2.5',	'AvgC<2.5',	'AHCh',	'B365CAHH',	'B365CAHA',	'PCAHH',	'PCAHA',	'MaxCAHH',	'MaxCAHA',	'AvgCAHH',	'AvgCAHA','BFH',	'BFD',	'BFA',	'1XBH',	'1XBD',	'1XBA',	'BFEH',	'BFED',	'BFEA',	'BFE>2.5',	'BFE<2.5',	'BFEAHH',	'BFEAHA',	'BFCH',	'BFCD',	'BFCA'	'1XBCH',	'1XBCD',	'1XBCA',	'BFECH',	'BFECD',	'BFECA',	'BFEC>2.5',	'BFEC<2.5',	'BFECAHH',	'BFECAHA'	 ], inplace =True, axis = 1, errors='ignore')
     dataset = pd.get_dummies(dataset, columns=['HomeTeam', 'AwayTeam'])
     dummy_columns = dataset.select_dtypes(bool).columns
     dataset[dummy_columns] = dataset[dummy_columns].astype(int)
@@ -16,7 +16,7 @@ def clean_seasonal_data(dataset):
     return dataset
 
 def clean_v2(dataset):
-    dataset.drop(['HTHG','HTAG','HTR','Referee','BWH', 'BWD', 'BWA', 'IWH', 'IWD', 'IWA', 'PSH', 'PSD', 'PSA', 'WHH', 'WHD', 'WHA', 'VCH', 'VCD', 'VCA', 'MaxH', 'MaxD', 'MaxA','AvgH','AvgD',	'AvgA',	'B365>2.5',	'B365<2.5',	'P>2.5',	'P<2.5',	'Max>2.5',	'Max<2.5',	'Avg>2.5',	'Avg<2.5',	'AHh',	'B365AHH',	'B365AHA',	'PAHH',	'PAHA',	'MaxAHH',	'MaxAHA',	'AvgAHH',	'AvgAHA',	'B365CH',	'B365CD',	'B365CA',	'BWCH',	'BWCD',	'BWCA',	'IWCH',	'IWCD',	'IWCA',	'PSCH',	'PSCD',	'PSCA',	'WHCH',	'WHCD',	'WHCA',	'VCCH',	'VCCD',	'VCCA',	'MaxCH',	'MaxCD',	'MaxCA',	'AvgCH',	'AvgCD',	'AvgCA',	'B365C>2.5',	'B365C<2.5',	'PC>2.5',	'PC<2.5',	'MaxC>2.5',	'MaxC<2.5',	'AvgC>2.5',	'AvgC<2.5',	'AHCh',	'B365CAHH',	'B365CAHA',	'PCAHH',	'PCAHA',	'MaxCAHH',	'MaxCAHA',	'AvgCAHH',	'AvgCAHA','BFH',	'BFD',	'BFA',	'1XBH',	'1XBD',	'1XBA',	'BFEH',	'BFED',	'BFEA',	'BFE>2.5',	'BFE<2.5',	'BFEAHH',	'BFEAHA',	'BFCH',	'BFCD',	'BFCA'	'1XBCH',	'1XBCD',	'1XBCA',	'BFECH',	'BFECD',	'BFECA',	'BFEC>2.5',	'BFEC<2.5',	'BFECAHH',	'BFECAHA'	 ], inplace =True, axis = 1, errors='ignore')
+    dataset.drop(['HTHG','HTAG','HTR','Referee', 'WHH', 'WHD', 'WHA', 'VCH', 'VCD', 'VCA', 'MaxH', 'MaxD', 'MaxA','AvgH','AvgD',	'AvgA',	'B365>2.5',	'B365<2.5',	'P>2.5',	'P<2.5',	'Max>2.5',	'Max<2.5',	'Avg>2.5',	'Avg<2.5',	'AHh',	'B365AHH',	'B365AHA',	'PAHH',	'PAHA',	'MaxAHH',	'MaxAHA',	'AvgAHH',	'AvgAHA',	'B365CH',	'B365CD',	'B365CA',	'BWCH',	'BWCD',	'BWCA',	'IWCH',	'IWCD',	'IWCA',	'PSCH',	'PSCD',	'PSCA',	'WHCH',	'WHCD',	'WHCA',	'VCCH',	'VCCD',	'VCCA',	'MaxCH',	'MaxCD',	'MaxCA',	'AvgCH',	'AvgCD',	'AvgCA',	'B365C>2.5',	'B365C<2.5',	'PC>2.5',	'PC<2.5',	'MaxC>2.5',	'MaxC<2.5',	'AvgC>2.5',	'AvgC<2.5',	'AHCh',	'B365CAHH',	'B365CAHA',	'PCAHH',	'PCAHA',	'MaxCAHH',	'MaxCAHA',	'AvgCAHH',	'AvgCAHA','BFH',	'BFD',	'BFA',	'1XBH',	'1XBD',	'1XBA',	'BFEH',	'BFED',	'BFEA',	'BFE>2.5',	'BFE<2.5',	'BFEAHH',	'BFEAHA',	'BFCH',	'BFCD',	'BFCA'	'1XBCH',	'1XBCD',	'1XBCA',	'BFECH',	'BFECD',	'BFECA',	'BFEC>2.5',	'BFEC<2.5',	'BFECAHH',	'BFECAHA'	 ], inplace =True, axis = 1, errors='ignore')
     return dataset
     
 def get_team_matches(team_name, dataset):
@@ -405,7 +405,9 @@ from bs4 import BeautifulSoup
 # URL of the website to scrape
 
 
-def scrape_data(url, season = '2023-2024'):
+
+
+def scrape_data(url, season = '2023-2024', league_identifier = '9'):
     response = requests.get(url)
     
     # Check if the request was successful
@@ -414,7 +416,7 @@ def scrape_data(url, season = '2023-2024'):
         soup = BeautifulSoup(response.content, 'html.parser')
     
         # Find the table with match data
-        table = soup.find('table', {'id': f'sched_{season}_9_1'})
+        table = soup.find('table', {'id': f'sched_{season}_{league_identifier}_1'})
     
         # Initialize a list to hold match data
         matches = []
@@ -441,8 +443,8 @@ def scrape_data(url, season = '2023-2024'):
     xgoals = pd.DataFrame(matches, columns=['Date', 'Home Team', 'Away Team', 'Home xG', 'Away xG'])
     return xgoals
 
-def join_scraped(url, season_data, season, teams):
-    xgoals= scrape_data(url, season)
+def join_scraped(url, season_data, season, teams, league_identifier):
+    xgoals= scrape_data(url, season, league_identifier)
     xgoals = xgoals[['Home Team', 'Away Team','Home xG', 'Away xG']]
 
     teams = sorted(teams)
@@ -717,6 +719,39 @@ def create_seasonal_table(season_data, teams):
         merged_teams_datasets_seasonal = merged_teams_datasets_seasonal.combine_first(df)
     merged_teams_datasets_seasonal.drop(['FTR',	'HS',	'AS',	'HST',	'AST',	'HF',	'AF',	'HC',	'AC',	'HY',	'AY',	'HR',	'AR','BFCA',	'1XBCH',	'Home Team',	'Away Team'],axis= 1, inplace = True, errors = 'ignore')
     return merged_teams_datasets_seasonal
+
+
+def prepare_dataframe(csv_file, season):
+    season_data = pd.read_csv(csv_file)
+    teams = season_data['HomeTeam'].unique()
+    url = f"https://fbref.com/en/comps/9/{season}/schedule/{season}-Premier-League-Scores-and-Fixtures"
+    league_identifier = '9'
+    season_data = join_scraped(url, season_data, season, teams, league_identifier)
+    season_data = clean_v2(season_data)
+    season_data = create_seasonal_table(season_data,teams)
+    season_data = calculate_odds(season_data)
+    return season_data
+    
+def calculate_odds(season_data):
+    try:
+        season_data['home_win_odds'] = season_data[['B365H', 'BWH', 'IWH', 'PSH']].mean(axis=1)
+        season_data['draw_odds'] = season_data[['B365D', 'BWD', 'IWD', 'PSD']].mean(axis=1)
+        season_data['away_win_odds'] = season_data[['B365A', 'BWA', 'IWA', 'PSA']].mean(axis=1) 
+    except:
+        season_data['home_win_odds'] = season_data[['B365H', 'BWH', 'PSH']].mean(axis=1)
+        season_data['draw_odds'] = season_data[['B365D', 'BWD', 'PSD']].mean(axis=1)
+        season_data['away_win_odds'] = season_data[['B365A', 'BWA', 'PSA']].mean(axis=1) 
+    bookmaker_margin = []
+    for index, row in season_data.iterrows():
+        book_mar = (1/row['home_win_odds'] + 1/row['draw_odds'] + 1/row['away_win_odds'])
+        home_odds = 1/row['home_win_odds']/book_mar
+        draw_odds = 1/row['draw_odds']/book_mar
+        away_odds = 1/row['away_win_odds']/book_mar
+        season_data.at[index, 'home_win_odds']= home_odds
+        season_data.at[index, 'draw_odds']= draw_odds
+        season_data.at[index, 'away_win_odds'] = away_odds
+    season_data.drop(['B365H', 'BWH', 'IWH', 'PSH','B365D', 'BWD', 'IWD', 'PSD','B365A', 'BWA', 'IWA', 'PSA','LBH',	'LBD',	'LBA',	'Bb1X2',	'BbMxH',	'BbAvH',	'BbMxD',	'BbAvD',	'BbMxA',	'BbAvA',	'BbOU',	'BbMx>2.5',	'BbAv>2.5',	'BbMx<2.5',	'BbAv<2.5',	'BbAH',	'BbAHh',	'BbMxAHH',	'BbAvAHH',	'BbMxAHA',	'BbAvAHA'], axis = 1, inplace= True, errors = 'ignore')
+    return season_data
 
 
 # In[ ]:
