@@ -394,7 +394,7 @@ def get_team_xg_n_matches(team_name, dataset, n, which = 'all'):
         team_games =  get_team_away_matches(team_name, dataset)   
     elif which =='all':
         team_games =  get_team_matches(team_name, dataset) 
-    team_shots_n_matches, shots_against_n_matches = last_n_matches_shots(team_games, team_name, n)
+    team_shots_n_matches, shots_against_n_matches = last_n_matches_xg(team_games, team_name, n)
     return  team_shots_n_matches, shots_against_n_matches
 
 
